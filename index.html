@@ -1,26 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>学习笔记资源库</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .notes-container {
+            flex: 1;
+        }
+        
+        .notes-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #4f46e5;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .note-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #7c3aed;
+        }
+        
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .note-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .note-desc {
+            color: #64748b;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .note-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f1f5f9;
+            color: #4f46e5;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .note-link:hover {
+            background: #4f46e5;
+            color: white;
+        }
+        
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+        
+        .info-title {
+            font-size: 1.2rem;
+            color: #4f46e5;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-content {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-list li:before {
+            content: "•";
+            color: #7c3aed;
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>该页面仅为测试页面</h1>
-
-    <img src="images/头像.jpg" width="150" />
-
-    <h2>目录</h2>
-    1.昵称的由来<br>
-    2. h5笔记<br>
-
-    <h2>昵称的由来</h2>
-    <p>萤雪取自成语"<a href="成语解释.html" target="_blank">囊萤映雪</a>"</p>
-
-    <h2>h5笔记</h2>
-    <a href="images/新建文件夹/h5.html" target="_blank">
-        <img src="images/h5笔记.png" width="500" alt="图片加载失败" title="在线预览"/><br>
-    </a>
-    <a href="images/新建文件夹">下载至本地</a>
-    </body>
+    <header>
+        
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <div class="notes-container">
+                <!-- 编程笔记部分 -->
+                <div class="notes-section">
+                    <h2 class="section-title"><i class="fas fa-code"></i> 编程笔记</h2>
+                    <div class="notes-grid">
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">三角洲整活</h3>
+                                <p class="note-desc">深入理解闭包、原型链、异步编程等JavaScript核心概念</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a target="_blank" href="打洲吗.html" class="note-link"><i class="fas fa-download" ></i> 查看笔记</a>
+                            </div>
+                        </div>
+                        
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">单片机原理与应用</h3>
+                                <p class="note-desc">使用Pandas、NumPy和Matplotlib进行数据分析的完整指南</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a target="_blank" href="单片机原理以及应用/1第一章 微机基础知识/1单片机.html" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                        
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">React 核心原理</h3>
+                                <p class="note-desc">Virtual DOM、组件生命周期、Hooks等React核心机制解析</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a href="#" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 设计笔记部分 -->
+                <div class="notes-section">
+                    <h2 class="section-title"><i class="fas fa-paint-brush"></i> 设计笔记</h2>
+                    <div class="notes-grid">
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">UI设计原则</h3>
+                                <p class="note-desc">色彩理论、排版、布局等UI设计核心原则与实践技巧</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a href="#" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                        
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">用户体验设计</h3>
+                                <p class="note-desc">用户研究、信息架构、交互设计等UX设计方法论</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a href="#" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 语言学习笔记部分 -->
+                <div class="notes-section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> 语言学习笔记</h2>
+                    <div class="notes-grid">
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">英语语法精要</h3>
+                                <p class="note-desc">时态、语态、从句等英语核心语法要点总结</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a href="#" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                        
+                        <div class="note-card">
+                            <div class="card-content">
+                                <h3 class="note-title">日语学习笔记</h3>
+                                <p class="note-desc">五十音图、常用表达、语法结构等日语学习资料</p>
+                                <!-- 在这里添加实际资源链接 -->
+                                <a href="#" class="note-link"><i class="fas fa-download"></i> 查看笔记</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 学习笔记资源库 | 静态资源分享平台</p>
+            <p>本站所有资源仅供学习交流使用，请勿用于商业用途</p>
+        </div>
+    </footer>
+</body>
 </html>
